@@ -1,0 +1,1 @@
+curl --location --request GET 'http://localhost:9000/tickets/unused?doctorId=1&visitDate=01.08.2022'

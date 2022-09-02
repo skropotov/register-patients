@@ -1,0 +1,1 @@
+curl --location --request GET 'http://localhost:9000/tickets/used?patientId=1'
