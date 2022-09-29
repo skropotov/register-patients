@@ -1,5 +1,6 @@
 package ru.skropotov.registerpatients.services;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -57,7 +58,7 @@ public class TicketService {
 	}
 	
 	private void createTicketsPerDay(int startHour, int endHour, LocalDate currentDate, int visitDuration) {
-		List<Ticket> tickets = ticketRepository.findByVisitDate(currentDate.format(formatter));
+		List<Ticket> tickets = ticketRepository.findByVisitDate(Date.valueOf(currentDate));
 		if (tickets.size() > 0) {
 			throw new RuntimeException("Талоны за " + currentDate.format(formatter) + " уже созданы");
 		}

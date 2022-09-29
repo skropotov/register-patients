@@ -1,5 +1,6 @@
 package ru.skropotov.registerpatients.repositories;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +14,6 @@ public interface TicketRepository extends CrudRepository<Ticket, Long> {
 	
 	List<Ticket> findByPatientId(Long patientId);
 	
-	@Query(value = "select * from tickets t where to_char(trunc(t.visit_date), 'DD.MM.YYYY') = ?", nativeQuery = true)
-	List<Ticket> findByVisitDate(String visitDate);
+	@Query(value = "select * from tickets t where trunc(t.visit_date) = ?", nativeQuery = true)
+	List<Ticket> findByVisitDate(Date visitDate);
 }
